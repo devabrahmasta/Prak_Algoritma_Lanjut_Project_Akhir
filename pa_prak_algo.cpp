@@ -1,7 +1,11 @@
 #include <iostream>
 using namespace std;
 
+
+
 int main(){
- //kita akan membuat gudang
+    int pilih;
+    cout << setw(40) << setfill("=") << "=" << endl;
     
 }
+
