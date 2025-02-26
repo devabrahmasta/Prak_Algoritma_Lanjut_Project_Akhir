@@ -2,22 +2,23 @@
 #include <iomanip>
 using namespace std;
 
-
-struct akun_pengguna{
+struct akun_pengguna
+{
     int ID;
     string username;
     string password;
 };
 
+//deklarasi global
 akun_pengguna akun[1001];
-int jumlahakun=0;
+int jumlahakun = 0;
 char pilihMenu;
 string username, password;
 string ulangMenu;
 bool kesempatan = false;
 int kesempatanlogin = 3;
 
-//Fungsi
+// Fungsi
 void errorInput();
 void loginPage();
 void menaruhItems();
@@ -25,12 +26,13 @@ void mengambilItems();
 void mencariItems();
 void menuPage();
 
-
-int main(){
+int main()
+{
     loginPage();
 }
 
-void errorInput(){
+void errorInput()
+{
     system("pause");
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(4) << " " << "Mohon maaf Anda salah input" << endl
@@ -40,61 +42,85 @@ void errorInput(){
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
-void loginPage(){
-    bool check_username=false;
-    bool check_password=false;
+void loginPage()
+{
+    char optionFalse;
+    bool check_username = false;
+    bool check_password = false;
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << "username : ";
     getline(cin, username);
     cout << "password : ";
     cin >> password;
 
-    for(int i=0;i<=jumlahakun;i++){
-        if(username==akun[i].username) check_username=true;
-        if(password==akun[i].password) check_password=true;
-        if(check_password==true&&check_username==true){
+    for (int i = 0; i <= jumlahakun; i++)
+    {
+        if (username == akun[i].username)
+            check_username = true;
+        if (password == akun[i].password)
+            check_password = true;
+        if (check_password == true && check_username == true)
+        {
             break;
         }
-        else {
-            check_password=false;
-            check_username=false;
+        else
+        {
+            check_password = false;
+            check_username = false;
         }
     }
-    if(check_password==true&&check_username==true){
-        cout<<"Login Berhasil";
+    if (check_password == true && check_username == true)
+    {
+        cout << "Login Berhasil";
         cin.ignore();
         getchar();
         menuPage();
     }
-    else {
-        cout<<"Username atau Password salah. Tolong masukan yang benar atau buat akun dahulu"<<endl;
+    else
+    {
+        cout << "Username atau Password salah." << endl
+             << "Tolong masukan yang benar atau buat akun dahulu" << endl;
         cin.ignore();
         getchar();
+
+        cout << "Ingin mencoba lagi atau register? (1/2): ";
+        cin >> optionFalse;
+        getchar();
+        if (optionFalse == 1)
+            loginPage();
+        else if(optionFalse == 2) // registerpage
+            loginPage();
+        
+
     }
 }
 
-void menaruhItems(){
+void menaruhItems()
+{
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "Menaruh Items" << endl;
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
-void mengambilItems(){
+void mengambilItems()
+{
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "Mengambil Items" << endl;
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
-void mencariItems(){
+void mencariItems()
+{
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "Mencari Items" << endl;
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
-void menuPage(){
+void menuPage()
+{
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "SELAMAT DATANG DI GUDANG" << endl;
