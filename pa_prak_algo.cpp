@@ -26,6 +26,8 @@ void mengambilItems();
 void mencariItems();
 void menuPage();
 
+void registerID();
+
 int main()
 {
     loginPage();
@@ -44,55 +46,73 @@ void errorInput()
 
 void loginPage()
 {
+    char pil_akun;
     char optionFalse;
     bool check_username = false;
     bool check_password = false;
-    cout << setfill('=') << setw(40) << "=" << endl;
-    cout << "username : ";
-    getline(cin, username);
-    cout << "password : ";
-    cin >> password;
+    cout<<"Apakah sudah punya akun?(y/n): ";
+    cin>>pil_akun;
+    if(pil_akun=='y'||pil_akun=='Y'){
+        cout << setfill('=') << setw(40) << "=" << endl;
+        cout << "username : ";
+        cin.ignore();
+        getline(cin, username); //Nanti diganti
+        cout << "password : ";
+        cin >> password;
 
-    for (int i = 0; i <= jumlahakun; i++)
-    {
-        if (username == akun[i].username)
-            check_username = true;
-        if (password == akun[i].password)
-            check_password = true;
+        for (int i = 0; i <= jumlahakun; i++)
+        {
+            if (username == akun[i].username)
+                check_username = true;
+            if (password == akun[i].password)
+                check_password = true;
+            if (check_password == true && check_username == true)
+            {
+                break;
+            }
+            else
+            {
+                check_password = false;
+                check_username = false;
+            }
+        }
         if (check_password == true && check_username == true)
         {
-            break;
+            cout << "Login Berhasil";
+            cin.ignore();
+            getchar();
+            menuPage();
         }
         else
         {
-            check_password = false;
-            check_username = false;
+            cout << "Username atau Password salah." << endl
+                << "Tolong masukan yang benar atau buat akun dahulu" << endl;
+            cin.ignore();
+            getchar();
+
+            cout << "Ingin mencoba lagi atau register? (1/2): ";
+            cin >> optionFalse;
+            getchar();
+            if (optionFalse == 1)
+                loginPage();
+            else if(optionFalse == 2) // registerpage
+                loginPage();
+            
+
         }
     }
-    if (check_password == true && check_username == true)
-    {
-        cout << "Login Berhasil";
-        cin.ignore();
-        getchar();
-        menuPage();
+    else if(pil_akun=='n'||pil_akun=='N'){
+        cout<<"Buat akun terlebih dahulu"<<endl;
+        system("pause");
+        registerID();
     }
-    else
-    {
-        cout << "Username atau Password salah." << endl
-             << "Tolong masukan yang benar atau buat akun dahulu" << endl;
-        cin.ignore();
-        getchar();
-
-        cout << "Ingin mencoba lagi atau register? (1/2): ";
-        cin >> optionFalse;
-        getchar();
-        if (optionFalse == 1)
-            loginPage();
-        else if(optionFalse == 2) // registerpage
-            loginPage();
-        
-
+    else {
+        cout<<"Input tidak ada yang cocok."<<endl;
+        cout<<"Kembali ke Login Page"<<endl;
+        system("pause");
+        loginPage();
     }
+    
 }
 
 void menaruhItems()
@@ -170,4 +190,18 @@ void menuPage()
         system("pause");
         menuPage();
     }
+}
+
+void registerID(){
+    jumlahakun++;
+    cout<<"============MEMBUAT AKUN============="<<endl;
+    for(int i=jumlahakun;i<=jumlahakun;i++){
+        akun[i].ID=i;
+        cout<<"Masukkan Username: ";
+        cin>>akun[i].username;
+        cout<<"Masukkan Password: ";
+        cin>>akun[i].password;
+    }
+    cin.get();
+    loginPage();
 }
