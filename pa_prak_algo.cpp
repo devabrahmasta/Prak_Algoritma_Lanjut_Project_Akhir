@@ -132,21 +132,21 @@ void loginPage()
         system("pause");
         registerID();
     }
-    else
-    {
-        cout << "Username atau Password salah." << endl
-             << "Tolong masukan yang benar atau buat akun dahulu" << endl;
-        cin.ignore();
-        getchar();
+    // else
+    // {
+    //     cout << "Username atau Password salah." << endl
+    //          << "Tolong masukan yang benar atau buat akun dahulu" << endl;
+    //     cin.ignore();
+    //     getchar();
 
-        cout << "Ingin mencoba lagi atau register? (1/2): ";
-        cin >> optionFalse;
-        getchar();
-        if (optionFalse == 1)
-            loginPage();
-        else if (optionFalse == 2) // registerpage
-            loginPage();
-    }
+    //     cout << "Ingin mencoba lagi atau register? (1/2): ";
+    //     cin >> optionFalse;
+    //     getchar();
+    //     if (optionFalse == 1)
+    //         loginPage();
+    //     else if (optionFalse == 2) // registerpage
+    //         loginPage();
+    // }
     
 }
 
