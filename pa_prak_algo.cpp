@@ -55,7 +55,7 @@ void registerID();
 int main()
 {
     system("cls");
-    // loginPage();
+    //loginPage();
     menuPage();
 }
 
@@ -162,15 +162,17 @@ void menambahItems()
     {
         cout << setfill('=') << setw(40) << "=" << endl;
         cout << "Ingin menambahkan berapa barang : ";
+        cin.ignore();
         cin >> quantity;
+        cin.ignore();
         for (int i = 0; i < quantity; i++)
         {
             cout << "Masukkan nama barang ke-" << q + 1 << " Anda : ";
-            cin.ignore();
-            getline(cin, pengguna.namaBarang.namaBarang[q]);
+            
+            getline(cin>>ws,pengguna.namaBarang.namaBarang[q]);
             q++;
         }
-
+        
         cout << "\nIngin menambah barang kembali? (y/n): ";
         cin >> ulangMenu;
     } while (ulangMenu == "Y" || ulangMenu == "y");
@@ -236,7 +238,7 @@ void menuPage()
     switch (pilihMenu)
     {
     case '0':
-        main();
+        //main();
         system("pause");
         break;
     case '1':
