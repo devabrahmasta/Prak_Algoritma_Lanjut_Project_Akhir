@@ -132,10 +132,10 @@ void menambahItems()
         cout << setfill('=') << setw(40) << "=" << endl;
         cout << "Ingin menambahkan berapa barang : ";
         cin >> quantity;
+        cin.ignore();
         for (int i = 0; i < quantity; i++)
         {
             cout << "Masukkan nama barang ke-" << q + 1 << " Anda : ";
-            cin.ignore();
             getline(cin, pengguna.namaBarang.namaBarang[q]);
             q++;
         }
@@ -146,7 +146,7 @@ void menambahItems()
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
-void mengambilItems()
+void mengambilItems() // sama kek hapus barang. logicnya itu cari dulu baru hapus.
 {
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
@@ -169,10 +169,16 @@ void menampilkanItems()
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "Menampilkan Items" << endl;
     cout << setfill('=') << setw(40) << "=" << endl;
-    
-    for (int i = 0; i < q; i++)
+    if (q == 0)
     {
-        cout << i + 1 << ". " << pengguna.namaBarang.namaBarang[i] << endl;
+        cout << "\nMohon tambahkan barang terlebih dahulu\n";
+    }
+    else
+    {
+        for (int i = 0; i < q; i++)
+        {
+            cout << i + 1 << ". " << pengguna.namaBarang.namaBarang[i] << endl;
+        }
     }
     cout << setfill('=') << setw(40) << "=" << endl;
 }
@@ -182,6 +188,19 @@ void historiItems()
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "Histori Items" << endl;
+    cout << setfill('=') << setw(40) << "=" << endl;
+    
+    if (q == 0)
+    {
+        cout << "\nMohon tambahkan barang terlebih dahulu\n";
+    }
+    else
+    {
+        for (int i = 0; i < q; i++)
+        {
+            cout << i + 1 << ". " << pengguna.namaBarang.namaBarang[i] << endl;
+        }
+    }
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
