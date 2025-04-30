@@ -2,39 +2,16 @@
 #include <iomanip>
 using namespace std;
 
-struct gudang
-{
-    string namaBarang[1001];
-    string idBarang[1001];
-};
-
 struct akun_pengguna
 {
     int ID;
     string username;
     string password;
-    gudang namaBarang;
 };
 
-// penyimpanan gudang
-// string barang[1001] = { // diganti nanti
-//     "Laptop",
-//     "Printer",
-//     "Meja",
-//     "Kursi",
-//     "Rak Buku",
-//     "Proyektor",
-//     "Kabel Listrik",
-//     "Papan Tulis",
-//     "AC (Air Conditioner)",
-//     "Lampu"
-
-// };
-
-// deklarasi global
+//deklarasi global
 akun_pengguna akun[1001];
-akun_pengguna pengguna;
-int jumlahakun = 0, q = 0;
+int jumlahakun = 0;
 char pilihMenu;
 string username, password;
 string ulangMenu;
@@ -44,19 +21,14 @@ int kesempatanlogin = 3;
 // Fungsi
 void errorInput();
 void loginPage();
-void menambahItems();
+void menaruhItems();
 void mengambilItems();
 void mencariItems();
-void historiItems();
 void menuPage();
-
-void registerID();
 
 int main()
 {
-    system("cls");
-    // loginPage();
-    menuPage();
+    loginPage();
 }
 
 void errorInput()
@@ -72,108 +44,62 @@ void errorInput()
 
 void loginPage()
 {
-    char pil_akun;
     char optionFalse;
     bool check_username = false;
     bool check_password = false;
-    cout<<"Apakah sudah punya akun?(y/n): ";
-    cin>>pil_akun;
-    if(pil_akun=='y'||pil_akun=='Y'){
-        cout << setfill('=') << setw(40) << "=" << endl;
-        cout << "username : ";
-        cin.ignore();
-        getline(cin, username); //Nanti diganti
-        cout << "password : ";
-        cin >> password;
+    cout << setfill('=') << setw(40) << "=" << endl;
+    cout << "username : ";
+    getline(cin, username);
+    cout << "password : ";
+    cin >> password;
 
-        for (int i = 0; i <= jumlahakun; i++)
-        {
-            if (username == akun[i].username)
-                check_username = true;
-            if (password == akun[i].password)
-                check_password = true;
-            if (check_password == true && check_username == true)
-            {
-                break;
-            }
-            else
-            {
-                check_password = false;
-                check_username = false;
-            }
-        }
+    for (int i = 0; i <= jumlahakun; i++)
+    {
+        if (username == akun[i].username)
+            check_username = true;
+        if (password == akun[i].password)
+            check_password = true;
         if (check_password == true && check_username == true)
         {
-            cout << "Login Berhasil";
-            cin.ignore();
-            getchar();
-            menuPage();
+            break;
         }
         else
         {
-            cout << "Username atau Password salah." << endl
-                << "Tolong masukan yang benar atau buat akun dahulu" << endl;
-            cin.ignore();
-            getchar();
-
-            cout << "Ingin mencoba lagi atau register? (1/2): ";
-            cin >> optionFalse;
-            getchar();
-            if (optionFalse == 1)
-                loginPage();
-            else if(optionFalse == 2) // registerpage
-                loginPage();
-            
-
+            check_password = false;
+            check_username = false;
         }
     }
-    else if(pil_akun=='n'||pil_akun=='N'){
-        cout<<"Buat akun terlebih dahulu"<<endl;
-        system("pause");
-        registerID();
+    if (check_password == true && check_username == true)
+    {
+        cout << "Login Berhasil";
+        cin.ignore();
+        getchar();
+        menuPage();
     }
-    // else
-    // {
-    //     cout << "Username atau Password salah." << endl
-    //          << "Tolong masukan yang benar atau buat akun dahulu" << endl;
-    //     cin.ignore();
-    //     getchar();
+    else
+    {
+        cout << "Username atau Password salah." << endl
+             << "Tolong masukan yang benar atau buat akun dahulu" << endl;
+        cin.ignore();
+        getchar();
 
-    //     cout << "Ingin mencoba lagi atau register? (1/2): ";
-    //     cin >> optionFalse;
-    //     getchar();
-    //     if (optionFalse == 1)
-    //         loginPage();
-    //     else if (optionFalse == 2) // registerpage
-    //         loginPage();
-    // }
-    
+        cout << "Ingin mencoba lagi atau register? (1/2): ";
+        cin >> optionFalse;
+        getchar();
+        if (optionFalse == 1)
+            loginPage();
+        else if(optionFalse == 2) // registerpage
+            loginPage();
+        
+
+    }
 }
 
-void menambahItems()
+void menaruhItems()
 {
-    int quantity;
-    bool add = true;
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
-    cout << setfill(' ') << setw(8) << " " << "Menambah Items" << endl;
-
-    do
-    {
-        cout << setfill('=') << setw(40) << "=" << endl;
-        cout << "Ingin menambahkan berapa barang : ";
-        cin >> quantity;
-        for (int i = 0; i < quantity; i++)
-        {
-            cout << "Masukkan nama barang ke-" << q + 1 << " Anda : ";
-            cin.ignore();
-            getline(cin, pengguna.namaBarang.namaBarang[q]);
-            q++;
-        }
-
-        cout << "\nIngin menambah barang kembali? (y/n): ";
-        cin >> ulangMenu;
-    } while (ulangMenu == "Y" || ulangMenu == "y");
+    cout << setfill(' ') << setw(8) << " " << "Menaruh Items" << endl;
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
@@ -193,41 +119,15 @@ void mencariItems()
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
-void menampilkanItems()
-{
-    // akun_pengguna pengguna;
-    system("cls");
-    cout << setfill('=') << setw(40) << "=" << endl;
-    cout << setfill(' ') << setw(8) << " " << "Menampilkan Items" << endl;
-    cout << setfill('=') << setw(40) << "=" << endl;
-    
-    for (int i = 0; i < q; i++)
-    {
-        cout << i + 1 << ". " << pengguna.namaBarang.namaBarang[i] << endl;
-    }
-    cout << setfill('=') << setw(40) << "=" << endl;
-}
-
-void historiItems()
-{
-    system("cls");
-    cout << setfill('=') << setw(40) << "=" << endl;
-    cout << setfill(' ') << setw(8) << " " << "Histori Items" << endl;
-    cout << setfill('=') << setw(40) << "=" << endl;
-}
-
 void menuPage()
 {
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "SELAMAT DATANG DI GUDANG" << endl;
     cout << setfill('=') << setw(40) << "=" << endl;
-    cout << "0. Logout" << endl;
-    cout << "1. Menambah item" << endl;
+    cout << "1. Menaruh item" << endl;
     cout << "2. Mengambil item" << endl;
     cout << "3. Mencari item" << endl;
-    cout << "4. Menampilkan item" << endl;
-    cout << "5. Histori" << endl;
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << "Mau ngapain    : ";
     cin >> pilihMenu;
@@ -235,12 +135,9 @@ void menuPage()
     system("pause");
     switch (pilihMenu)
     {
-    case '0':
-        main();
-        system("pause");
-        break;
     case '1':
-        menambahItems();
+        menaruhItems();
+        system("pause");
         break;
     case '2':
         mengambilItems();
@@ -250,14 +147,6 @@ void menuPage()
         mencariItems();
         system("pause");
         break;
-    case '4':
-        menampilkanItems();
-        system("pause");
-        break;
-    case '5':
-        historiItems();
-        system("pause");
-        break;
 
     default:
         errorInput();
@@ -265,8 +154,7 @@ void menuPage()
         menuPage();
         break;
     }
-    cin.ignore();
-    cout << "Kembali ke menu? (y/n) : ";
+    cout << "ingin kembali? (y/n) : ";
     cin >> ulangMenu;
     if (ulangMenu == "Y" || ulangMenu == "y")
     {
@@ -282,18 +170,4 @@ void menuPage()
         system("pause");
         menuPage();
     }
-}
-
-void registerID(){
-    jumlahakun++;
-    cout<<"============MEMBUAT AKUN============="<<endl;
-    for(int i=jumlahakun;i<=jumlahakun;i++){
-        akun[i].ID=i;
-        cout<<"Masukkan Username: ";
-        cin>>akun[i].username;
-        cout<<"Masukkan Password: ";
-        cin>>akun[i].password;
-    }
-    cin.get();
-    loginPage();
 }
