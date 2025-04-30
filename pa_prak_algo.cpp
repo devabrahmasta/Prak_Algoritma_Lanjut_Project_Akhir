@@ -157,7 +157,7 @@ void menuPage()
     switch (pilihMenu)
     {
     case '0':
-        //main();
+        main();
         system("pause");
         break;
     case '2':
