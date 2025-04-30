@@ -28,7 +28,9 @@ void menuPage();
 
 int main()
 {
-    loginPage();
+    system("cls");
+    //loginPage();
+    menuPage();
 }
 
 void errorInput()
@@ -99,7 +101,26 @@ void menaruhItems()
 {
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
-    cout << setfill(' ') << setw(8) << " " << "Menaruh Items" << endl;
+    cout << setfill(' ') << setw(8) << " " << "Menambah Items" << endl;
+
+    do
+    {
+        cout << setfill('=') << setw(40) << "=" << endl;
+        cout << "Ingin menambahkan berapa barang : ";
+        cin.ignore();
+        cin >> quantity;
+        cin.ignore();
+        for (int i = 0; i < quantity; i++)
+        {
+            cout << "Masukkan nama barang ke-" << q + 1 << " Anda : ";
+            
+            getline(cin>>ws,pengguna.namaBarang.namaBarang[q]);
+            q++;
+        }
+        
+        cout << "\nIngin menambah barang kembali? (y/n): ";
+        cin >> ulangMenu;
+    } while (ulangMenu == "Y" || ulangMenu == "y");
     cout << setfill('=') << setw(40) << "=" << endl;
 }
 
@@ -135,8 +156,8 @@ void menuPage()
     system("pause");
     switch (pilihMenu)
     {
-    case '1':
-        menaruhItems();
+    case '0':
+        //main();
         system("pause");
         break;
     case '2':
