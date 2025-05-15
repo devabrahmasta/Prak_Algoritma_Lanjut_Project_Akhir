@@ -1,14 +1,15 @@
 #include <iostream>
+#include <fstream>
 #include <iomanip>
 using namespace std;
 
 struct gudang
 {
-    string namaBarang[1001];
+    string namaBarang[1001]; //gudang terbatas ehe
     string idBarang[1001];
 };
 
-struct akun_pengguna
+struct akun_admin
 {
     int ID;
     string username;
@@ -32,8 +33,8 @@ struct akun_pengguna
 // };
 
 // deklarasi global
-akun_pengguna akun[1001];
-akun_pengguna pengguna;
+akun_admin akun[1001];
+akun_admin admin;
 int jumlahakun = 0, q = 0;
 char pilihMenu;
 string username, password;
@@ -52,7 +53,6 @@ void menuPage();
 
 int main()
 {
-    system("cls");
     // loginPage();
     menuPage();
 }
@@ -136,7 +136,7 @@ void menambahItems()
         {
             cout << "Masukkan nama barang ke-" << q + 1 << " Anda : ";
             cin.ignore();
-            getline(cin, pengguna.namaBarang.namaBarang[q]);
+            getline(cin, admin.namaBarang.namaBarang[q]);
             q++;
         }
 
@@ -164,7 +164,7 @@ void mencariItems()
 
 void menampilkanItems()
 {
-    // akun_pengguna pengguna;
+    // akun_admin admin;
     system("cls");
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "Menampilkan Items" << endl;
@@ -172,7 +172,7 @@ void menampilkanItems()
     
     for (int i = 0; i < q; i++)
     {
-        cout << i + 1 << ". " << pengguna.namaBarang.namaBarang[i] << endl;
+        cout << i + 1 << ". " << admin.namaBarang.namaBarang[i] << endl;
     }
     cout << setfill('=') << setw(40) << "=" << endl;
 }
