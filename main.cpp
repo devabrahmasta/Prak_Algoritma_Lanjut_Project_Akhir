@@ -39,7 +39,6 @@ void loginPage(){
         cout << "Login Berhasil..."<< endl;
         cin.ignore();
         system("pause");
-        
         menuPage();
     }else{
         loginPage();
