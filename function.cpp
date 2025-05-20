@@ -25,7 +25,7 @@ void InputData(string nama, string barang, int idBarang){
         Database << gantiSpasi(nama) << barang << idBarang;
         Database.close();
     }else{
-        cout << "EROR" << endl;
+        cout << "ERROR" << endl;
     }
 }
 
@@ -57,19 +57,28 @@ void menambahItems(){
     
 }
 void mengambilItems(){
-
+    //MencariItems()
+    //Print Data yang diambil
+    //Hapus data yang diambil
+    //UpdateHistori
 }
 void mencariItems(){
-
+    //Admin memasukkan nama Client 
+    //Untuk mengetahui barang apa saja yang disimpan
+    //Memunculkan semua data yang dunukuj
 }
 void historiItems(){
-
+    //menampikan seluruh riwayat
+    // sorting ascending 
+    // search barang tertentu [opsional]
 }
 
 void menampilkanItems(){
-
+    //pencarian file secara default
 }
 
+//fungsi total keuntungan
+    //rekursif history dr yg udah keluar buat hitung keuntungan
 void errorInput(){
     
 }
