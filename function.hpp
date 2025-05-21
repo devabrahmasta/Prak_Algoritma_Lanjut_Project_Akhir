@@ -9,8 +9,9 @@ using namespace std;
 
 struct gudang
 {
-    string nama[1001]; //gudang terbatas ehe
-    int id[1001];
+    string nama; 
+    int id;
+    int harga;
 };
 
 
@@ -20,15 +21,20 @@ struct client
     gudang barang;
 };
 
-// deklarasi global
-// menu tambah:
-// char pilihMenu;
 
+void sortInsertion();
 void menambahItems();
 void mengambilItems();
 void mencariItems();
 void historiItems();
 void menampilkanItems();
 void errorInput();
+int totalKeuntunganRekursif(ifstream &file, int total);
+int hitungTotalKeuntungan();
+void bacaIDTerakhir(int *idTerakhir);
+string gantiUnderscore(string nama);
+string gantiSpasi(string nama);
+bool ulangMenu(char ulang);
+extern void menuPage();
 
 #endif

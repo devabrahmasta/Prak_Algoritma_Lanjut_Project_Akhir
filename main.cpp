@@ -1,5 +1,30 @@
 #include "function.hpp"
 
+// Array check
+// Fungsi check
+// Rekursif check
+// Searching check
+// Sorting check
+// Pointer check
+// FILE check
+
+
+//mengambil :
+//a. barang yang diambil belum bisa dihapus
+//history : 
+//a. menampilkan histori yang masuk dan keluar (tambahin status)
+//b. Menambahkan input Histori di bagian MenambahkanITEM()
+
+//Program
+//TXT
+//Ifstream (Input)
+//TXT => Program
+//Ofstream
+//Program => TXT
+//FStream
+//TXT <=> Program
+
+
 void menuPage();
 void loginPage();
 bool BacaFile(string Pengguna, string Kata_Sandi);
@@ -48,7 +73,7 @@ void loginPage(){
 
 void menuPage(){
     clearScreen();
-    int pilihMenu;
+    char pilihMenu;
     string ulangMenu;
     cout << setfill('=') << setw(40) << "=" << endl;
     cout << setfill(' ') << setw(8) << " " << "SELAMAT DATANG DI GUDANG" << endl;
