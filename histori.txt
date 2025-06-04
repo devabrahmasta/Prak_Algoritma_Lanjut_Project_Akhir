@@ -1,1 +1,13 @@
-pelanggan pela 1 100000 KELUAR
+ariz pulpen 1 10000 MASUK
+deva botol 2 10000 MASUK
+kokoA botol_plastik 3 5000 MASUK
+zen kaleng 4 2000 MASUK
+gua g 5 10000 MASUK
+gua apa 6 10002 MASUK
+sudah makan 7 12000 MASUK
+pelanggan barang 8 10000 MASUK
+zen kaleng 4 2000 KELUAR
+deva Ariz 9 9000 MASUK
+deva botol 2 10000 KELUAR
+client botol 11 10000 MASUK
+client botol 11 10000 KELUAR

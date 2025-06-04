@@ -10,10 +10,10 @@
 
 
 //mengambil :
-//a. barang yang diambil belum bisa dihapus
+//a. barang yang diambil belum bisa dihapus check
 //history : 
-//a. menampilkan histori yang masuk dan keluar (tambahin status)
-//b. Menambahkan input Histori di bagian MenambahkanITEM()
+//a. menampilkan histori yang masuk dan keluar (tambahin status) check
+//b. Menambahkan input Histori di bagian MenambahkanITEM() check
 
 //Program
 //TXT
@@ -23,7 +23,7 @@
 //Program => TXT
 //FStream
 //TXT <=> Program
-
+//ganti ID
 
 void menuPage();
 void loginPage();
@@ -55,20 +55,24 @@ bool BacaFile(string Pengguna, string Kata_Sandi)
 void loginPage(){
     clearScreen();
     string username, password;
+    cout << setfill('=') << setw(40) << "=" << endl;
     cout << "Menu Login" << endl;
+    cout << setfill('=') << setw(40) << "=" << endl;
     cout << "Username : ";
     cin >> username;
     cout << "Password : ";
-    cin >> password;
+    cin >> password;    
+    cout << setfill('=') << setw(40) << "=" << endl;
     if(BacaFile(username, password)==true){
         cout << "Login Berhasil..."<< endl;
+        cout << setfill('=') << setw(40) << "=" << endl;
         cin.ignore();
         system("pause");
         menuPage();
     }else{
+        cout << "Login Gagal" << endl;
         loginPage();
     }
-    
 }
 
 void menuPage(){
@@ -121,7 +125,7 @@ void menuPage(){
         menuPage();
         break;
     }
-    cin.ignore();
+    //cin.ignore();
     cout << "Kembali ke menu? (y/n) : ";
     cin >> ulangMenu;
     if (ulangMenu == "Y" || ulangMenu == "y")

@@ -12,6 +12,7 @@ struct gudang
     string nama; 
     int id;
     int harga;
+    string status; 
 };
 
 
@@ -34,7 +35,6 @@ int hitungTotalKeuntungan();
 void bacaIDTerakhir(int *idTerakhir);
 string gantiUnderscore(string nama);
 string gantiSpasi(string nama);
-bool ulangMenu(char ulang);
 extern void menuPage();
 
 #endif

@@ -10,9 +10,9 @@ void tampilkanHeader(){
  \_____  \.|   |/   Y   \|    |  _/ /  /_\  \. 
  /        \|   /    |    \    |   \/    |    \.
 /_______  /|___\___/ \__ /______  /\____|__  /
-        \/.             \/.     \/.        \/.          
+        \/.            \/.      \/.        \/.          
           )";
-    cout<<GREEN<<BOLD<<"SIMpan BArang ONLINE"<<endl;
+    cout<<GREEN<<BOLD<<"SIMpan BArang"<<endl;
     cout<<RESET<<"Made by : ";
     cout<<RED<<"ARIZ";
     cout<<RESET<<" & ";
@@ -24,7 +24,6 @@ void tampilkanHeader(){
 
 void clearScreen(){
     system("cls");
-    cout<<"\033[2J\033[H";
-    cout<<"\033[1;1H";
+    
     tampilkanHeader();
 }
